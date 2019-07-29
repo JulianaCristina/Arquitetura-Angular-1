@@ -1,0 +1,43 @@
+<h1>
+  {{title}}
+</h1>
+
+  <ul *ngFor="let nome of nomes, let i= index">
+   <li> O nome da pessoa é: {{nome}}, e está na posição {{i+1}} </li>
+  </ul>
+  
+  <input #box placeholder="digite um nome " (keyup)="buscar(box.value)" />
+
+  <ul *ngFor="let nomeFiltro of nomesFiltro">
+    <li>{{nomeFiltro}} </li> 
+  </ul>
+
+  <p> Salario total R$: {{getValorTotal()}}</p>
+
+  <input #parametroid placeholder="digite um id"/>
+<button (click)= "retorno = buscarId(parametroid.value)"> Buscar id </button>
+<p *ngIf="retorno != undfined">{{retorno.id}} - {{retorno.nome}}</p>
+
+<br>
+<br>
+<input #percentual placeholder="Digite o percentual "/>
+<button (click) = "aumentarSalario(percentual.value)"> Aumentar Salario</button>
+<br>
+<br>
+<p>
+  {{verificaSalario(500)? 'Todo Mundo ganha mais que R$500': 'nem todo mundo ganha mais que R$500'}}
+</p>
+
+<input #criterio placeholder="digite um criterio de busca" (keyup) ="resposta = buscaCampos(criterio.value)" />
+<ul *ngFor="let r of resposta ">
+  <li> {{r.id}} - {{r.nome}} - {{r.salario}} </li>
+ </ul>
+<br>
+<br>
+ <input placeholder="digite um nome" #campo>
+<button (click)="enviar(campo.value)">Enviar</button>
+<ul *ngFor="let r of nomes2">
+ <li>{{r}}</li>
+</ul>
+
+
